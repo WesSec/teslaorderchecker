@@ -1,0 +1,3 @@
+apprise
+requests
+requests-oauthlib
