@@ -102,9 +102,9 @@ def compare_data(old_data, new_data, parent_key=""):
                 )
             elif new_data[key] != value:
                 message = (
-                    f"'{full_key}': old value: '{value}' new value: '{new_data[key]}'"
+                    f"'{full_key}': \nold value: '{value}' \nnew value: '{new_data[key]}'"
                 )
-                print(message)
+                print(f"[!] Data Changed: \n{message}")
                 if wantnotification:
                     notify(message)
 
