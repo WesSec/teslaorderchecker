@@ -1,23 +1,28 @@
 import requests
 import time
 import json
+import sys
 from datetime import datetime, timedelta
 import apprise
 
 
-# refresh token, obtain it using https://github.com/adriankumpf/tesla_auth
-refresh_token = "<Refresh Token>"
-# Reservation number, starts with RN
-reservation_number = "<Reservation Number>"
+# Load the config file
+try: 
+    with open('config.json', 'r') as f:
+        config = json.load(f)
+
+    refresh_token = config['refresh_token']
+    reservation_number = config['reservation_number']
+    apprisestr = config['apprisestr']
+    wantnotification = config['notifications_enabled']
+
+except Exception as e:
+    # If the file is not found, print the message and exit
+    print("config.json not found, please run 'cp config.json.sample config.json' and double check your variables")
+    sys.exit(1)
+    
 # Check interval in seconds (10 minutes)
 interval = 600
-# Notification via apprise, Set to false if unsure
-wantnotification = False
-# Apprise string (see https://github.com/caronc/apprise)
-apprisestr = "tgram://<BotToken>/<ChatId>/"
-
-
-### Do not change anything below unless you know what you're doing
 # Token expiry time (8 hours)
 token_expiry = datetime.now() + timedelta(hours=8)
 
