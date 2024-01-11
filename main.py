@@ -137,7 +137,7 @@ while True:
     try:
         # Check if the token is about to expire
         if datetime.now() >= token_expiry - timedelta(minutes=20):
-            access_token, refresh_token = refresh_access_token(refresh_token)
+            access_token, refresh_token = refresh_access_token()
             token_expiry = datetime.now() + timedelta(hours=8)
             print("Token refreshed")
 
