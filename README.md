@@ -1,3 +1,6 @@
+## UPDATE: 29-02-2024
+As I have had my tesla delivered for a while now, I am not maintaining this code anymore. Feel free to pull request any fixes.
+
 # TeslaOrderChecker
 
 TeslaOrderChecker is a simple tool designed to periodically check for changes in Tesla vehicle orders. It utilizes the Tesla API to monitor your order status.
